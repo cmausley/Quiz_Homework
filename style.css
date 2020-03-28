@@ -102,23 +102,7 @@ body{
     margin-top : -10px;
     margin-left : 25px;
 }
-#progress{
-    width : 500px;
-    position: absolute;
-    bottom : 0px;
-    right : 0px;
-    padding:5px;
-    text-align: right;
-}
-.prog{
-    width : 25px;
-    height : 25px;
-    border: 1px solid #000;
-    display: inline-block;
-    border-radius: 50%;
-    margin-left : 5px;
-    margin-right : 5px;
-}
+
 #scoreContainer{
     margin : 20px auto;
     background-color: white;

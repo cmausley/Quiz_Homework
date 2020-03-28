@@ -69,7 +69,7 @@ let score = 0;
 function renderQuestion(){
     let q = questions[continuousQuestion];
     
-    question.innerHTML = "<p>"+ q.question +"</p>";
+    questions.innerHTML = "<p>"+ q.question +"</p>";
     questionImg.innerHTML = "<img src="+ q.imgSrc +">";
     choiceA.innerHTML = q.choiceA;
     choiceB.innerHTML = q.choiceB;
