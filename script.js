@@ -2,10 +2,10 @@
 const start = document.getElementById("start");
 const quiz = document.getElementById("quiz");
 const question = document.getElementById("question");
+const questionImage = document.getElementById("questionImage");
 const choiceA = document.getElementById("A");
 const choiceB = document.getElementById("B");
 const choiceC = document.getElementById("C");
-const questionImg = document.getElementById("questionImg");
 const counter = document.getElementById("counter");
 const timeGauge = document.getElementById("timeGauge");
 const scoreDiv = document.getElementById("scoreContainer");
@@ -14,15 +14,15 @@ const scoreDiv = document.getElementById("scoreContainer");
 let questions = [
     {
         question : "What are HTML tags?",
-        imgSrc : "img/html.png",
-        choiceA : "Code that looks like this: <p></p>, <h1></h1>",
+        imgSrc : "images/html.png",
+        choiceA : "Code with brackets, and letters within those brackets",
         choiceB : "The tags that set off alarms at the store if you try to steal something.",
         choiceC : "Neither of these.",
         correct : "A"
     },
     {
         question : "What does HTML stand for?",
-        imgSrc : "img/html.png",
+        imgSrc : "images/html.png",
         choiceA : "Hypertrophic Management Language",
         choiceB : "Hypertext Markup Language",
         choiceC : "How To Make Language",
@@ -30,28 +30,29 @@ let questions = [
     },
     {
         question : "What is the correct HTML for referring to an external style sheet?",
-        imgSrc : "img/css.png",
-        choiceA : "<style src=mystyle.css>",
-        choiceB : "<link rel='stylesheet' type='text/css' href='mystyle.css'",
-        choiceC : "<stylesheet>mystyle.css</stylesheet>",
+        imgSrc : "images/css.png",
+        choiceA : "style src=mystyle.css",
+        choiceB : "link rel='stylesheet' type='text/css' href='mystyle.css'",
+        choiceC : "stylesheet>mystyle.css</stylesheet",
         correct : "B"
     },
     {
         question : "Inside which HTML element do we put the JavaScript?",
-        imgSrc : "img/js.png",
-        choiceA : "<js>",
-        choiceB : "<javascript>",
-        choiceC : "<script>",
+        imgSrc : "images/js.png",
+        choiceA : "js",
+        choiceB : "javascript",
+        choiceC : "script",
         correct : "C"
     },
     {
         question : "What is the correct syntax for referring to an external script called 'xxx.js'?",
-        imgSrc : "img/js.png",
-        choiceA : "<script name='xxx.js'>",
-        choiceB : "<script src='xxx.js'>",
-        choiceC : "<script href='xxx.js'>",
+        imgSrc : "images/js.png",
+        choiceA : "script name='xxx.js'",
+        choiceB : "script src='xxx.js'",
+        choiceC : "script href='xxx.js'",
         correct : "B"
     }
+ 
 ];
 
 //STEP 3: DEVELOP VARIABLES
@@ -70,7 +71,7 @@ function renderQuestion(){
     let q = questions[continuousQuestion];
     
     question.innerHTML = "<p>"+ q.question +"</p>";
-    questionImg.innerHTML = "<img src="+ questionImgSrc +">";
+    questionImage.innerHTML = "<img src="+ q.imgSrc +">";
     choiceA.innerHTML = q.choiceA;
     choiceB.innerHTML = q.choiceB;
     choiceC.innerHTML = q.choiceC;
@@ -95,7 +96,6 @@ function renderCounter(){
         count++
     }else{
         count = 0;
-        // change progress color to red
         answerIsWrong();
         if(continuousQuestion < lastQuestion){
             continuousQuestion++;
@@ -113,11 +113,8 @@ function checkAnswer(answer){
     if( answer == questions[continuousQuestion].correct){
         // answer is correct
         score++;
-        // change progress color to green
         answerIsCorrect();
     }else{
-        // answer is wrong
-        // change progress color to red
         answerIsWrong();
     }
     count = 0;
@@ -131,14 +128,14 @@ function checkAnswer(answer){
     }
 }
 
-// STEP 8: IF ANSWER IS CORRECT...
+// answer is correct
 function answerIsCorrect(){
-    document.getElementById(continuousQuestion).style.backgroundColor = "#0f0";
+    document.getElementById(continuousQuestion);
 }
 
-// STEP 9: IF ANSWER IS WRONG...
+// answer is Wrong
 function answerIsWrong(){
-    document.getElementById(continuousQuestion).style.backgroundColor = "#f00";
+    document.getElementById(continuousQuestion);
 }
 
 // STEP 10: SHOW FINAL SCORE
@@ -149,10 +146,10 @@ function scoreRender(){
     const scorePerCent = Math.round(100 * score/questions.length);
     
     // LET VIEWER SEE HOW THEY DID!
-    let img = (scorePerCent >= 80) ? "img/5.png" :
-              (scorePerCent >= 60) ? "img/4.png" :
-              (scorePerCent >= 40) ? "img/3.png" :
-              (scorePerCent >= 20) ? "img/2.png" :
+    let img = (scorePerCent >= 80) ? "images/5.png" :
+              (scorePerCent >= 60) ? "images/4.png" :
+              (scorePerCent >= 40) ? "images/3.png" :
+              (scorePerCent >= 20) ? "images/2.png" :
               "img/1.png";
     
     scoreDiv.innerHTML = "<img src="+ img +">";
