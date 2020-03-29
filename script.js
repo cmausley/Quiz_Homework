@@ -69,8 +69,8 @@ let score = 0;
 function renderQuestion(){
     let q = questions[continuousQuestion];
     
-    questions.innerHTML = "<p>"+ q.question +"</p>";
-    questionImg.innerHTML = "<img src="+ q.imgSrc +">";
+    question.innerHTML = "<p>"+ q.question +"</p>";
+    questionImg.innerHTML = "<img src="+ questionImgSrc +">";
     choiceA.innerHTML = q.choiceA;
     choiceB.innerHTML = q.choiceB;
     choiceC.innerHTML = q.choiceC;
@@ -83,7 +83,6 @@ function startQuiz(){
     start.style.display = "none";
     renderQuestion();
     quiz.style.display = "block";
-    renderProgress();
     renderCounter();
     TIMER = setInterval(renderCounter,1000);
 }
